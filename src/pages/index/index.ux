@@ -2,24 +2,87 @@
   <div class="demo-page">
     <text class="title">{{ $t("a.b") }},欢迎打开{{ title }}</text>
     <!-- 点击跳转详情页 -->
-    <input class="btn" type="button" value="跳转到详情页" onclick="routeDetail" />
+  <list class="list1" bounces="true">
+        <list-item class="item1 justify-between" type="costom"></list-item>
+        <list-item class="item justify-between" type="costom" for="{{list}}" @click="navigateToPage($item.Src)">
+          <div class="center">
+            <text class="subject-name">{{ $item.name }}</text>
+          </div>
+        </list-item>
+      </list>    
+      <image class="back" src="/common/icon/back.png" onclick="back"></image>
   </div>
 </template>
 
 <script>
 import router from "@system.router"
-import configuration from "@system.configuration"
+import app from "@system.app"
 
 export default {
   // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
   private: {
-    title: "示例页面"
-  },
+    title: "示例页面",
+    list: [
+      {
+        name: "必修一",
 
-  routeDetail() {
-    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
-    router.push({
-      uri: "/pages/detail"
+        Src: "/pages/wiki1"
+      },
+      {
+        name: "必修一",
+
+        Src: "/pages/wiki2"
+      },
+      {
+        name: "必修一",
+
+        Src: "/pages/wiki3"
+      },
+      {
+        name: "必修一",
+
+        Src: "/pages/wiki4"
+      },
+      {
+        name: "生日/角色考据",
+
+        Src: "/pages/wiki5"
+      },
+      {
+        name: "等级数值",
+
+        Src: "/pages/wiki7"
+      },
+      {
+        name: "升级材料",
+
+        Src: "/pages/wiki8"
+      },
+      {
+        name: "相关歌词",
+
+        Src: "/pages/wiki9"
+      }
+    ]
+  },
+  handleClick() {
+    app.terminate()
+  },
+  navigateToPage(src) {
+    router.replace({
+      uri: src
+    })
+  },
+  toHomePage(eve) {
+    if (eve.direction === "right") {
+      router.replace({
+        uri: "/pages/index"
+      })
+    }
+  },
+  back() {
+    router.replace({
+      uri: "/pages/index"
     })
   }
 }
@@ -31,19 +94,25 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
-.title {
-  font-size: 20px;
-  text-align: center;
+.item {
+  width: 324px;
+  height: 112px;
+  opacity: 1;
+  border-radius: 36px;
+  background: rgba(38, 38, 38, 1);
 }
+.back {
+  left: 0px;
+  top: 0px;
+  width: 72px;
+  height: 72px;
+  opacity: 1;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(38, 38, 38, 1) 0%,
+    rgba(38, 38, 38, 0.8) 100%
+  );
 
-.btn {
-  width: 200px;
-  height: 40px;
-  margin-top: 20px;
-  border-radius: 5px;
-  background-color: #09ba07;
-  font-size: 20px;
-  color: #ffffff;
+  border: 3px solid rgba(255, 255, 255, 0.06);
 }
 </style>
