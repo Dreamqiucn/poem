@@ -1,16 +1,21 @@
 <template>
-  <div class="demo-page">
-    <text class="title">{{ $t("a.b") }},欢迎打开{{ title }}</text>
+  <div class="page">
     <!-- 点击跳转详情页 -->
-  <list class="list1" bounces="true">
+  <list class="list" bounces="true">
         <list-item class="item1 justify-between" type="costom"></list-item>
-        <list-item class="item justify-between" type="costom" for="{{list}}" @click="navigateToPage($item.Src)">
+        <list-item class="item justify-between" type="costom" for="{{list}}" @click="navigateToPage($item.name)">
           <div class="center">
-            <text class="subject-name">{{ $item.name }}</text>
+            <text class="name">{{ $item.name }}</text>
           </div>
         </list-item>
       </list>    
+   
+      <image class="cover" src="/common/icon/cover.png"></image>
+         <text class="time">{{time}}</text>
+    <text class="title">课本</text>
       <image class="back" src="/common/icon/back.png" onclick="back"></image>
+      <image class="about" src="/common/icon/more.png" onclick="routePage8"></image>
+
   </div>
 </template>
 
@@ -22,55 +27,50 @@ export default {
   // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
   private: {
     title: "示例页面",
+    time :"00:00",
     list: [
       {
-        name: "必修一",
-
-        Src: "/pages/wiki1"
+        name: "  必修上",
       },
       {
-        name: "必修一",
-
-        Src: "/pages/wiki2"
+        name: "  必修下",
       },
       {
-        name: "必修一",
+        name: "  选择性必修上",
 
-        Src: "/pages/wiki3"
       },
       {
-        name: "必修一",
+        name: "  选择性必修中",
 
-        Src: "/pages/wiki4"
       },
       {
-        name: "生日/角色考据",
+        name: "  选择性必修下",
 
-        Src: "/pages/wiki5"
       },
       {
-        name: "等级数值",
-
-        Src: "/pages/wiki7"
+        name: "  高考额外篇目",
       },
-      {
-        name: "升级材料",
-
-        Src: "/pages/wiki8"
-      },
-      {
-        name: "相关歌词",
-
-        Src: "/pages/wiki9"
-      }
     ]
   },
-  handleClick() {
-    app.terminate()
-  },
-  navigateToPage(src) {
-    router.replace({
-      uri: src
+  onInit() {
+  const updateTime = () => {
+    const date = new Date();
+    const hour = date.getHours().toString().padStart(2, "0");
+    const minute = date.getMinutes().toString().padStart(2, "0");
+    this.time = hour + ":" + minute;
+  };
+  updateTime();
+  this.timer = setInterval(updateTime, 60000);
+},
+onDestroy() {
+  clearInterval(this.timer);
+},
+  navigateToPage(name) {
+    router.push({
+      uri: "/pages/detail",
+      params: {
+        text: name
+      }
     })
   },
   toHomePage(eve) {
@@ -89,30 +89,91 @@ export default {
 </script>
 
 <style>
-.demo-page {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.item {
-  width: 324px;
-  height: 112px;
-  opacity: 1;
-  border-radius: 36px;
-  background: rgba(38, 38, 38, 1);
-}
-.back {
-  left: 0px;
-  top: 0px;
+.about {
+  position: absolute;
+  left: 258px;
+  top: 6px;
   width: 72px;
   height: 72px;
-  opacity: 1;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(38, 38, 38, 1) 0%,
-    rgba(38, 38, 38, 0.8) 100%
-  );
+}
 
-  border: 3px solid rgba(255, 255, 255, 0.06);
+.cover {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 336px;
+  height: 102px;
+  opacity: 1;
+}
+.page {
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.time{left: 77px;
+top: 7px;
+width: 182px;
+height: 34px;
+opacity: 1;
+background: rgba(255, 255, 255, 0.6);
+/** 文本1 */
+font-size: 24px;
+font-weight: 600;
+letter-spacing: 0px;
+line-height: 33.6px;
+color: rgba(255, 255, 255, 0.6);
+text-align: center;
+vertical-align: top;
+position: absolute;
+}
+.name{
+  color: white;
+}
+.title{
+  left: 77px;
+top: 35px;
+width: 182px;
+height: 42px;
+opacity: 1;
+background: rgba(255, 255, 255, 1);
+font-size: 32px;
+font-weight: 500;
+letter-spacing: 0px;
+line-height: 44.8px;
+color: rgba(255, 255, 255, 1);
+text-align: center;
+vertical-align: top;
+position: absolute;
+}
+.list {
+  width: 100%;
+  flex: 1;
+}
+.item {
+height: 90px;  margin-top: 15px;
+ width: 324px;
+ margin-bottom: 15px;
+  border-radius: 20px;
+  background-color:  rgba(38, 38, 38, 1);
+}
+.item1 {
+  height: 40px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  
+}
+.back {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 72px;
+  height: 72px;
 }
 </style>
