@@ -25,6 +25,12 @@
       },
       "pages/detail": {
         "component": "detail"
+      },
+      "pages/poem": {
+        "component": "poem"
+      },
+      "pages/about": {
+        "component": "about"
       }
     }
   }

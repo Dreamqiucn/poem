@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page"  @swipe="ban">
     <!-- 点击跳转详情页 -->
   <list class="list" bounces="true">
         <list-item class="item1 justify-between" type="costom"></list-item>
@@ -14,7 +14,7 @@
          <text class="time">{{time}}</text>
     <text class="title">课本</text>
       <image class="back" src="/common/icon/back.png" onclick="back"></image>
-      <image class="about" src="/common/icon/more.png" onclick="routePage8"></image>
+      <image class="about" src="/common/icon/more.png" onclick="about"></image>
 
   </div>
 </template>
@@ -30,27 +30,29 @@ export default {
     time :"00:00",
     list: [
       {
-        name: "  必修上",
+        name: "  文言文必修",
       },
       {
-        name: "  必修下",
+        name: "  文言文选择性必修",
       },
       {
-        name: "  选择性必修上",
+        name: "  文言文选修",
 
       },
       {
-        name: "  选择性必修中",
+        name: "  古诗词（上）",
 
       },
       {
-        name: "  选择性必修下",
+        name: "  古诗词（下）",
 
-      },
-      {
-        name: "  高考额外篇目",
-      },
+      }
     ]
+  },
+  about() {
+    router.replace({
+      uri: "/pages/about"
+    })
   },
   onInit() {
   const updateTime = () => {
@@ -69,21 +71,15 @@ onDestroy() {
     router.push({
       uri: "/pages/detail",
       params: {
-        text: name
+        which: name
       }
     })
   },
-  toHomePage(eve) {
-    if (eve.direction === "right") {
-      router.replace({
-        uri: "/pages/index"
-      })
-    }
+  ban() {
+    console.log("ban")
   },
   back() {
-    router.replace({
-      uri: "/pages/index"
-    })
+    this.$app.exit();
   }
 }
 </script>
