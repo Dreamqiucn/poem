@@ -1,0 +1,205 @@
+<template>
+  <div class="page download-page" @swipe="toHomePage">
+    <image class="back" src="/common/icon/back.png" onclick="back"></image>
+    <div class="header column center">
+      <text class="title"></text>
+    </div>
+    <scroll class="column box" scroll-y="true" bounces="true">
+      <div class="header column center">
+        <text class="b">简要介绍</text>
+      </div>
+
+      <div class="description footer column center">
+        <text class="d">这是一个有高考必背的72篇古诗词的快应用</text>
+        <text class="d">
+          祝大家高考必胜
+        </text>
+        <text class="d">别在考试时用！！！</text>
+      </div>
+      <div class="header column center">
+        <text class="b">注意：下面是一个赞赏码和一个广告，不喜欢的可以不在向下看了！</text>
+      </div>
+      <image src="/common/icon/ad.png"></image>
+      <image  src="/common/icon/wx.png"></image>
+    </scroll>
+    <image class="cover" src="/common/icon/cover.png"></image>
+
+    <text class="title">更多信息</text>
+    <image class="back" src="/common/icon/back.png" onclick="back"></image>
+  </div>
+</template>
+
+<style>
+.title {
+  left: 71px;
+  top: 22px;
+  width: 194px;
+  height: 56px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 1);
+  /** 文本1 */
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  line-height: 44.8px;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  vertical-align: top;
+  position: absolute;
+}
+.cover {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 336px;
+  height: 102px;
+  opacity: 1;
+}
+.box {
+  width: 100%;
+  flex: 1;
+}
+
+.qrcode {
+  width: 260px;
+  height: 260px;
+}
+
+.qr {
+  border-radius: 36px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.back {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 72px;
+  height: 72px;
+}
+
+.description {
+  border: 3px solid rgba(255, 255, 255, 0.06);
+  border-radius: 36px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 100%;
+  flex: 50%;
+}
+
+.download-page {
+  flex-direction: column;
+
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+text {
+  color: #ffffff;
+}
+
+.column {
+  /* 竖直 */
+  flex-direction: column;
+}
+
+.row {
+  /* 水平 */
+  flex-direction: row;
+}
+
+.info {
+  /* 一块区域 */
+  width: 272px;
+  margin-top: 0px;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  margin-top: 30px;
+}
+
+.page {
+  /* 页面大小 */
+  flex: 1;
+  background-color: #000000;
+  width: 336px;
+  height: 480px;
+}
+
+.body {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.footer {
+  margin-top: 10px;
+}
+
+.icon2 {
+  width: 256px;
+  flex: auto;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.a {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.b {
+  font-size: 32px;
+  color: #ffffff;
+}
+
+.c {
+  font-size: 28px;
+  color: #ffffff;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.d {
+  font-size: 25px;
+  color: #c5c5c5;
+  margin-top: 10px;
+}
+
+.e {
+  font-size: 20px;
+  color: #ffffff;
+  margin-left: 10px;
+}
+</style>
+
+<script>
+// 导入模块
+import router from "@system.router"
+
+export default {
+  toHomePage(eve) {
+    if (eve.direction === "right") {
+      router.replace({
+        uri: "/pages/index"
+      })
+    }
+  },
+  back() {
+    router.replace({
+      uri: "/pages/index"
+    })
+  }
+}
+</script>
