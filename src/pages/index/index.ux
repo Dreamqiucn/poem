@@ -1,175 +1,172 @@
 <template>
-  <div class="page"  @swipe="ban">
+  <div class="page" @swipe="ban">
     <!-- 点击跳转详情页 -->
-  <list class="list" bounces="true">
-        <list-item class="item1 justify-between" type="costom"></list-item>
-        <list-item class="item justify-between" type="costom" for="{{list}}" @click="navigateToPage($item.name)">
-          <div class="center">
-            <text class="name">{{ $item.name }}</text>
-          </div>
-        </list-item>
-      </list>    
-   
-      <image class="cover" src="/common/icon/cover.png"></image>
-         <text class="time">{{time}}</text>
-    <text class="title">课本</text>
-      <image class="back" src="/common/icon/back.png" onclick="back"></image>
-      <image class="about" src="/common/icon/more.png" onclick="about"></image>
+    <list class="list" bounces="true">
+      <list-item class="item1 justify-between" type="costom"></list-item>
+      <list-item class="item justify-between" type="costom" for="{{list}}" @click="navigateToPage($item.name)">
+        <div class="center">
+          <text class="name">{{ $item.name }}</text>
+        </div>
+      </list-item>
+    </list>
 
+    <image class="cover" src="/common/icon/cover.png"></image>
+    <text class="time">{{ time }}</text>
+    <text class="title">课本</text>
+    <image class="back" src="/common/icon/back.png" onclick="back"></image>
+    <image class="about" src="/common/icon/more.png" onclick="about"></image>
   </div>
 </template>
 
 <script>
-import router from "@system.router"
-import app from "@system.app"
+import router from "@system.router";
+import app from "@system.app";
 
 export default {
-  // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
-  private: {
-    title: "示例页面",
-    time :"00:00",
-    list: [
-      {
-        name: "  文言文必修",
-      },
-      {
-        name: "  文言文选择性必修",
-      },
-      {
-        name: "  文言文选修",
-
-      },
-      {
-        name: "  古诗词（上）",
-
-      },
-      {
-        name: "  古诗词（下）",
-
-      }
-    ]
-  },
-  about() {
-    router.replace({
-      uri: "/pages/about"
-    })
-  },
-  onInit() {
-  const updateTime = () => {
-    const date = new Date();
-    const hour = date.getHours().toString().padStart(2, "0");
-    const minute = date.getMinutes().toString().padStart(2, "0");
-    this.time = hour + ":" + minute;
-  };
-  updateTime();
-  this.timer = setInterval(updateTime, 60000);
-},
-onDestroy() {
-  clearInterval(this.timer);
-},
-  navigateToPage(name) {
-    router.push({
-      uri: "/pages/detail",
-      params: {
-        which: name
-      }
-    })
-  },
-  ban() {
-    console.log("ban")
-  },
-  back() {
-    this.$app.exit();
-  }
-}
+	// 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
+	private: {
+		title: "示例页面",
+		time: "00:00",
+		list: [
+			{
+				name: "  文言文必修",
+			},
+			{
+				name: "  文言文选择性必修",
+			},
+			{
+				name: "  文言文选修",
+			},
+			{
+				name: "  古诗词（上）",
+			},
+			{
+				name: "  古诗词（下）",
+			},
+		],
+	},
+	about() {
+		router.replace({
+			uri: "/pages/about",
+		});
+	},
+	onInit() {
+		const updateTime = () => {
+			const date = new Date();
+			const hour = date.getHours().toString().padStart(2, "0");
+			const minute = date.getMinutes().toString().padStart(2, "0");
+			this.time = hour + ":" + minute;
+		};
+		updateTime();
+		this.timer = setInterval(updateTime, 60000);
+	},
+	onDestroy() {
+		clearInterval(this.timer);
+	},
+	navigateToPage(name) {
+		router.push({
+			uri: "/pages/detail",
+			params: {
+				which: name,
+			},
+		});
+	},
+	ban() {
+		console.log("ban");
+	},
+	back() {
+		this.$app.exit();
+	},
+};
 </script>
 
 <style>
 .about {
-  position: absolute;
-  left: 258px;
-  top: 6px;
-  width: 72px;
-  height: 72px;
+	position: absolute;
+	left: 258px;
+	top: 6px;
+	width: 72px;
+	height: 72px;
 }
 
 .cover {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 336px;
-  height: 102px;
-  opacity: 1;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 336px;
+	height: 102px;
+	opacity: 1;
 }
 .page {
-  align-items: center;
-  justify-content: center;
-  background-color: #000000;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: absolute;
-  width: 100%;
+	align-items: center;
+	justify-content: center;
+	background-color: #000000;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: absolute;
+	width: 100%;
 }
-.time{left: 77px;
-top: 7px;
-width: 182px;
-height: 34px;
-opacity: 1;
-background: rgba(255, 255, 255, 0.6);
-/** 文本1 */
-font-size: 24px;
-font-weight: 600;
-letter-spacing: 0px;
-line-height: 33.6px;
-color: rgba(255, 255, 255, 0.6);
-text-align: center;
-vertical-align: top;
-position: absolute;
+.time {
+	left: 77px;
+	top: 7px;
+	width: 182px;
+	height: 34px;
+	opacity: 1;
+	background: rgba(255, 255, 255, 0.6);
+	/** 文本1 */
+	font-size: 24px;
+	font-weight: 600;
+	letter-spacing: 0px;
+	line-height: 33.6px;
+	color: rgba(255, 255, 255, 0.6);
+	text-align: center;
+	vertical-align: top;
+	position: absolute;
 }
-.name{
-  color: white;
+.name {
+	color: white;
 }
-.title{
-  left: 77px;
-top: 35px;
-width: 182px;
-height: 42px;
-opacity: 1;
-background: rgba(255, 255, 255, 1);
-font-size: 32px;
-font-weight: 500;
-letter-spacing: 0px;
-line-height: 44.8px;
-color: rgba(255, 255, 255, 1);
-text-align: center;
-vertical-align: top;
-position: absolute;
+.title {
+	left: 77px;
+	top: 35px;
+	width: 182px;
+	height: 42px;
+	opacity: 1;
+	background: rgba(255, 255, 255, 1);
+	font-size: 32px;
+	font-weight: 500;
+	letter-spacing: 0px;
+	line-height: 44.8px;
+	color: rgba(255, 255, 255, 1);
+	text-align: center;
+	vertical-align: top;
+	position: absolute;
 }
 .list {
-  width: 100%;
-  flex: 1;
+	width: 100%;
+	flex: 1;
 }
 .item {
-height: 90px;  margin-top: 15px;
- width: 324px;
- margin-bottom: 15px;
-  border-radius: 20px;
-  background-color:  rgba(38, 38, 38, 1);
+	height: 90px;
+	margin-top: 15px;
+	width: 324px;
+	margin-bottom: 15px;
+	border-radius: 20px;
+	background-color: rgba(38, 38, 38, 1);
 }
 .item1 {
-  height: 40px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  border-radius: 20px;
-  
+	height: 40px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 20px;
 }
 .back {
-  position: absolute;
-  left: 6px;
-  top: 6px;
-  width: 72px;
-  height: 72px;
+	position: absolute;
+	left: 6px;
+	top: 6px;
+	width: 72px;
+	height: 72px;
 }
 </style>
