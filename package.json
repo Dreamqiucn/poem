@@ -1,10 +1,10 @@
 {
   "name": "poem",
   "version": "1.0.0",
-  "description": "",
+  "description": "a",
   "engines": {
     "node": ">=8.10"
-  },
+  }, 
   "scripts": {
     "start": "aiot server --watch --open-nuttx",
     "build": "aiot build",
