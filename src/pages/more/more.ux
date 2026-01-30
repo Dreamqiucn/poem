@@ -11,16 +11,28 @@
 
       <div class="description footer column center">
         <text class="d">这是一个有高考必背的72篇古诗词的快应用</text>
-        <text class="d">
-          祝大家高考必胜
-        </text>
+        <text class="d">祝大家高考必胜</text>
         <text class="d">别在考试时用！！！</text>
       </div>
       <div class="header column center">
-        <text class="b">注意：下面是一个赞赏码和一个广告，不喜欢的可以不在向下看了！</text>
+        <text class="b">
+          注意：下面是一个赞赏码和广告，希望您能赞助我，如果可以，那么特别感谢！！！
+        </text>
+        <text class="c">免费小程序：</text>
+        <text class="d">腕上芙宁娜（原版）</text>
+        <text class="d">心情日记</text>
+        <text class="d">高中古诗词</text>
+        <text class="d">经验回归方程计算</text>
+        <text class="d">赛博算卦</text>
+        <text class="d">蓝发举手小女孩</text>
+        <text class="c">付费小程序：</text>
+        <text class="d">腕上芙宁娜Pro</text>
+        <text class="d">愤怒的小球</text>
+        <text class="d">上班模拟器</text>
+        <text class="d">九号出口</text>
+        <text class="d">无论是免费的还是付费的小程序，欢迎并感谢您的使用！！！</text>
       </div>
-      <image src="/common/icon/ad.png"></image>
-      <image  src="/common/icon/wx.png"></image>
+      <image src="/common/icon/wx.png"></image>
     </scroll>
     <image class="cover" src="/common/icon/cover.png"></image>
 
