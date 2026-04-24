@@ -1,0 +1,267 @@
+<template>
+	<div class="page download-page" @swipe="toHomePage">
+		<image class="back" src="/common/icon/back.png" onclick="back"></image>
+		<div class="header column center">
+			<text class="title"></text>
+		</div>
+		<scroll class="column box" scroll-y="true" bounces="true">
+			<div class="header column center">
+				<text class="b">简要介绍</text>
+			</div>
+
+			<div class="description footer column center">
+				<text class="d">这是一个有高考必背的72篇古诗词的快应用</text>
+				<text class="d">祝大家高考必胜</text>
+				<text class="d">别在考试时用！！！</text>
+			</div>
+			<div class="header column center">
+				<text class="b">
+					注意：下面是一个赞赏码和广告，希望您能赞助我，如果可以，那么特别感谢！！！
+				</text>
+				<text class="c">大部分是小米手环程序</text>
+				<text class="c">blueOS仍在适配</text>
+				<text class="c">免费小程序：</text>
+				<text class="d">腕上芙宁娜（原版）</text>
+				<text class="d">心情日记</text>
+				<text class="d">高中古诗词</text>
+				<text class="d">经验回归方程计算</text>
+				<text class="d">赛博算卦</text>
+				<text class="d">蓝发举手小女孩</text>
+				<text class="c">付费小程序：</text>
+				<text class="d">腕上芙宁娜Pro</text>
+				<text class="d">愤怒的小球</text>
+				<text class="d">上班模拟器</text>
+				<text class="d">九号出口</text>
+				<text class="d">
+					无论是免费的还是付费的小程序，欢迎并感谢您的使用！！！
+				</text>
+				<image style="width: 200px" src="/common/icon/wx.png"></image>
+				<text class="d">爱发电主页：</text>
+				<div class="qrcode-wrap">
+					<qrcode class="qrcode" value="http://www.vivo.com.cn/"></qrcode>
+				</div>
+			</div>
+		</scroll>
+		<image class="cover" src="/common/icon/cover.png"></image>
+		<image class="back" src="/common/icon/back.png" onclick="back"></image>
+		<text class="time">{{ time }}</text>
+		<text class="title">更多信息</text>
+	</div>
+</template>
+
+<style>
+	.time {
+		left: 107px;
+		top: 7px;
+		width: 182px;
+		height: 34px;
+		opacity: 1;
+		background: rgba(255, 255, 255, 0.6);
+		/** 文本1 */
+		font-size: 24px;
+		font-weight: 600;
+		letter-spacing: 0px;
+		line-height: 33.6px;
+		color: rgba(255, 255, 255, 0.6);
+		text-align: center;
+		opacity: 0.6;
+		position: absolute;
+	}
+	.name {
+		color: white;
+	}
+	.title {
+		left: 107px;
+		top: 35px;
+		width: 182px;
+		height: 42px;
+		opacity: 1;
+		background: rgba(255, 255, 255, 1);
+		font-size: 32px;
+		font-weight: 500;
+		letter-spacing: 0px;
+		line-height: 44.8px;
+		color: rgba(255, 255, 255, 1);
+		text-align: center;
+		vertical-align: top;
+		position: absolute;
+	}
+	.cover {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 102px;
+		opacity: 1;
+	}
+	.box {
+		width: 100%;
+		flex: 1;
+	}
+
+	.qrcode {
+		width: 200px;
+		height: 200px;
+	}
+
+	.qrcode-wrap {
+		width: 200px;
+		height: 200px;
+		overflow: hidden;
+		margin-top: 10px;
+		margin-bottom: 30px;
+	}
+
+	.qr {
+		border-radius: 36px;
+		background: rgba(255, 255, 255, 1);
+	}
+
+	.back {
+		position: absolute;
+		left: 20px;
+		top: 6px;
+		width: 72px;
+		height: 72px;
+	}
+
+	.description {
+		border-radius: 36px;
+		background-color: rgba(255, 255, 255, 0.2);
+		color: #fff;
+		padding: 10px;
+		font-size: 14px;
+	}
+
+	.icon {
+		width: 100%;
+		flex: 50%;
+	}
+
+	.download-page {
+		flex-direction: column;
+
+		height: 100%;
+		position: absolute;
+		width: 100%;
+	}
+
+	text {
+		color: #ffffff;
+	}
+
+	.column {
+		/* 竖直 */
+		flex-direction: column;
+	}
+
+	.row {
+		/* 水平 */
+		flex-direction: row;
+	}
+
+	.info {
+		/* 一块区域 */
+		width: 272px;
+		margin-top: 0px;
+	}
+
+	.center {
+		align-items: center;
+		justify-content: center;
+	}
+
+	.header {
+		margin-top: 40px;
+	}
+
+	.page {
+		/* 页面大小 */
+		flex: 1;
+		background-color: #000000;
+		width: 100%;
+		height: 480px;
+	}
+
+	.body {
+		margin-top: 10px;
+		margin-left: 15px;
+	}
+
+	.footer {
+		margin-top: 10px;
+	}
+
+	.icon2 {
+		width: 256px;
+		flex: auto;
+		margin-top: 10px;
+		margin-left: 0px;
+	}
+
+	.a {
+		font-size: 40px;
+		margin-bottom: 20px;
+	}
+
+	.b {
+		font-size: 30px;
+		color: #ffffff;
+	}
+
+	.c {
+		font-size: 28px;
+		color: #ffffff;
+		margin-left: 30px;
+		margin-top: 15px;
+	}
+
+	.d {
+		font-size: 25px;
+		color: #c5c5c5;
+		margin-top: 10px;
+	}
+
+	.e {
+		font-size: 20px;
+		color: #ffffff;
+		margin-left: 10px;
+	}
+</style>
+
+<script>
+	import router from '@blueos.app.appmanager.router'
+
+	export default {
+		private: {
+			title: '示例页面',
+			time: '00:00',
+			list: [],
+		},
+		onInit() {
+			const updateTime = () => {
+				const date = new Date()
+				const hour = date.getHours().toString().padStart(2, '0')
+				const minute = date.getMinutes().toString().padStart(2, '0')
+				this.time = hour + ':' + minute
+			}
+			updateTime()
+			this.timer = setInterval(updateTime, 60000)
+		},
+		onDestroy() {
+			clearInterval(this.timer)
+		},
+		toHomePage(eve) {
+			if (eve.direction === 'right') {
+				router.replace({
+					uri: '/pages/index',
+				})
+			}
+		},
+		back() {
+			router.replace({
+				uri: '/pages/index',
+			})
+		},
+	}
+</script>

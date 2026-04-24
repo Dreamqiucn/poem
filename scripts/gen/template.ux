@@ -1,0 +1,27 @@
+<template>
+  <div class="wrapper">
+    <text class="title">{{ title }}</text>
+  </div>
+</template>
+
+<script>
+export default {
+  data: {
+    title: '欢迎体验蓝河应用开发'
+  },
+
+  onInit() {}
+}
+</script>
+
+<style lang="scss">
+@import './../../assets/styles/style.scss';
+.wrapper {
+  @include flex-box-mixins(column, center, center);
+  .title {
+    font-size: 8 * $size-factor;
+    text-align: center;
+    color: $black;
+  }
+}
+</style>

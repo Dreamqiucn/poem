@@ -1,0 +1,41 @@
+{
+  "package": "com.Dreamqiu.poem",
+  "name": "高中古诗词",
+  "versionName": "1.2",
+  "versionCode": 1,
+  "minPlatformVersion": 1000,
+  "icon": "/common/logo.png",
+  "deviceTypeList": [
+    "watch",
+    "watch-square"
+  ],
+  "features": [
+    {
+      "name": "blueos.app.appmanager.appState"
+    }
+  ],
+  "config": {
+    "logLevel": "log",
+    "designWidth": 390
+  },
+  "router": {
+    "entry": "pages/index",
+    "pages": {
+      "pages/index": {
+        "component": "index"
+      },
+      "pages/detail": {
+        "component": "index"
+      },
+      "pages/poem": {
+        "component": "index"
+      },
+      "pages/about": {
+        "component": "index"
+      },
+      "pages/more": {
+        "component": "index"
+      }
+    }
+  }
+}
